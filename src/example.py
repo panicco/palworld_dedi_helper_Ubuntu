@@ -6,11 +6,12 @@ import sys
 from loguru import logger
 
 
-STEAMCMD_DIR = os.getenv("steamcmd_dir")
-SERVER_NAME = os.getenv("palworld_server_name")
-SERVER_IP = os.getenv("palworld_server_ip")
-RCON_PASSWORD = os.getenv("palworld_rcon_password")
-RCON_PORT = int(os.getenv("palworld_rcon_port"))
+STEAMCMD_DIR = "/usr/games/"    # path to steamcmd install
+SERVER_NAME = "EXAMPLE" # Server name
+SERVER_IP = "1.1.1.1"   # Server IP address
+RCON_PASSWORD = "password"  # Server Rcon Password
+SERVER_PATH = "/home/<USER>/Steam/steamapps/common/PalServer/" # path to server files
+RCON_PORT = 25575   # Port For RCON connection
 
 
 # Change level to DEBUG if you want more logging.
