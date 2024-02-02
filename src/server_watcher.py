@@ -23,13 +23,14 @@ LOG_LEVEL = "INFO"
 LOGS_DIR = "logs"
 
 
-STEAMCMD_DIR = os.getenv("steamcmd_dir")
-SERVER_NAME = os.getenv("palworld_server_name")
-SERVER_IP = os.getenv("palworld_server_ip")
-RCON_PASSWORD = os.getenv("palworld_rcon_password")
-RCON_PORT = int(os.getenv("palworld_rcon_port"))
+STEAMCMD_DIR = "/usr/games/"    # path to steamcmd install
+SERVER_NAME = "EXAMPLE" # Server name
+SERVER_IP = "1.1.1.1"   # Server IP address
+RCON_PASSWORD = "password"  # Server Rcon Password
+SERVER_PATH = "/home/<USER>/Steam/steamapps/common/PalServer/" # path to server files
+RCON_PORT = 25575   # Port For RCON connection
 
-LOOP_SLEEP = 30
+LOOP_SLEEP = 30 # Seconds to wait between checks
 
 
 def calculate_minutes_elapsed(last_time):
@@ -100,7 +101,7 @@ def main():
         )
 
     # Create PalworldUtil instance with required vars only.
-    pal = PalworldUtil(STEAMCMD_DIR, SERVER_NAME, SERVER_IP, RCON_PORT, RCON_PASSWORD)
+    pal = PalworldUtil(STEAMCMD_DIR, SERVER_NAME, SERVER_IP, RCON_PORT, RCON_PASSWORD, SERVER_PATH)
 
     if ROTATE_AFTER_X_BACKUPS > 0:
         pal.rotate_after_x_backups = ROTATE_AFTER_X_BACKUPS

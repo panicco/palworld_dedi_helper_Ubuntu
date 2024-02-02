@@ -20,20 +20,19 @@ class PalworldUtil:
         server_ip: str,
         rcon_port: int,
         rcon_password: str,
-        palworld_server_proc_name: str = "PalServer-Win64-Test-Cmd.exe",
+		server_path: str,
+        palworld_server_proc_name: str = "PalServer.sh",
         wait_before_restart_seconds: int = 30,
-        steam_app_id: str = "2394010",  # Palworld dedicated server.
-        server_port: int = 8211,
-        max_players: int = 32,  # 32 players is max.
-        rcon: SourceRcon = None,
+        steam_app_id: str = "2394010",  # Palworld dedicated server. Steam AppID
+        server_port: int = 8211,    # Server game port
+        max_players: int = 32,  # Server max players (32max)
+        rcon: PalworldRcon = None,
         backup_dir: str = None,
         rotate_backups: bool = True,
         rotate_after_x_backups: int = 5,
     ) -> None:
-        self.steamcmd_dir = steamcmd_dir  # Path to steamcmd.exe directory.
-        self.palworld_server_dir = Path(
-            Path(self.steamcmd_dir) / "steamapps" / "common" / "PalServer"
-        )  # Full path to the root directory of your palworld server files.
+        self.steamcmd_dir = Path(steamcmd_dir)  # Path to steamcmd directory.
+        self.palworld_server_dir = Path(server_path) # Full path to the root directory of your palworld server files.
         self.palworld_server_save_dir = Path(self.palworld_server_dir / "Pal" / "Saved")
         self.server_name = server_name  # What you want the server name to be.
 
@@ -110,7 +109,7 @@ class PalworldUtil:
         logger.info("Checking for game server updates...")
         subprocess.call(
             [
-                "steamcmd.exe",
+                "./steamcmd",
                 "+login",
                 "anonymous",
                 "+app_update",
@@ -127,16 +126,15 @@ class PalworldUtil:
         else:
             logger.info("Skipping game server updates.")
 
-        # Change to Palserver.exe directory if needed.
+        # Change to Palserver.sh directory if needed.
         if os.getcwd() != self.palworld_server_dir:
             logger.info(f"Changing to palworld server dir: {self.palworld_server_dir}")
             os.chdir(self.palworld_server_dir)
 
-        logger.info("Launching Palserver.exe...")
+        logger.info("Launching Palserver.sh...")
         subprocess.Popen(
             [
-                "start",
-                "PalServer.exe",
+                "./PalServer.sh",
                 f"-ServerName={self.server_name}",
                 f"-port={self.server_port}",
                 f"-players={self.max_players}",
