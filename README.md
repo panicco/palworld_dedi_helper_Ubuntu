@@ -1,3 +1,4 @@
+
 # Palworld dedicated server helper
 Helper utilities for managing a Palworld dedicated server in python. Send rcon commands, backup server, etc.
 
@@ -24,5 +25,7 @@ Welcome to Pal Server[v0.1.3.0] My Palworld Server
 * * Automatic server restarts on a timer.
 * * Automatic backups with rotation.
 
-# Contributing
-Feel free to open issues or pull requests as long as they're constructive / useful.
+* See `./src/rcon.py` for a basic RCON tool
+
+# Ubuntu Version
+Contributed to by PanicKode - Modified code to work on Ubuntu

@@ -1,3 +1,5 @@
+# Created by PanicKode
+# Simple RCON tool to send commands to a PalServer
 from utility.palworld_util import PalworldUtil
 
 import os
