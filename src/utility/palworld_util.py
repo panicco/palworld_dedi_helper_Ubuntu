@@ -26,7 +26,7 @@ class PalworldUtil:
         steam_app_id: str = "2394010",  # Palworld dedicated server. Steam AppID
         server_port: int = 8211,    # Server game port
         max_players: int = 32,  # Server max players (32max)
-        rcon: PalworldRcon = None,
+        rcon: SourceRcon = None,
         backup_dir: str = None,
         rotate_backups: bool = True,
         rotate_after_x_backups: int = 5,
