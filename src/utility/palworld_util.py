@@ -21,7 +21,7 @@ class PalworldUtil:
         rcon_port: int,
         rcon_password: str,
 		server_path: str,
-        palworld_server_proc_name: str = "PalServer.sh",
+        palworld_server_proc_name: str = "PalServer-Linux-Test",
         wait_before_restart_seconds: int = 30,
         steam_app_id: str = "2394010",  # Palworld dedicated server. Steam AppID
         server_port: int = 8211,    # Server game port
