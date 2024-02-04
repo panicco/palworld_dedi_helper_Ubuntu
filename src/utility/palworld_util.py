@@ -66,7 +66,7 @@ class PalworldUtil:
             self.server_launch_args.append("-log")
             self.server_launch_args.append("-nosteam")
         elif self.operating_system == "linux":
-            self.palworld_server_proc_name = "PalServer.sh"
+            self.palworld_server_proc_name = "PalServer-Linux-Test"
             self.steamcmd_executable = "./steamcmd"
             self.palserver_executable = "./PalServer.sh"
             self.palworld_server_dir = Path(
